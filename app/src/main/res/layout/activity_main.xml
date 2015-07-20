@@ -78,7 +78,7 @@
         android:layout_alignRight="@+id/button"
         android:layout_alignLeft="@+id/button"
         style="@style/ButtonTheme"
-        android:onClick="sendMessage" />
+        android:onClick="onButtonClick" />
 
     <Button
         android:layout_width="wrap_content"
