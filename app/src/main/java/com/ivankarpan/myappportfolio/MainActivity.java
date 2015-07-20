@@ -12,39 +12,24 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
+    protected Toast toast;
+
     public void onButtonClick(View view) {
+        if (toast != null) {
+            toast.cancel();
+        }
+
         Button button = (Button)view;
-        Toast.makeText(
+        toast = Toast.makeText(
                 this,
-                "This button will launch " + button.getText() + "!",
-                Toast.LENGTH_SHORT).show();
+                getString(R.string.button_toast, button.getText()),
+                Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
